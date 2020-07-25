@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录用户监控信息</title>
+    {#  导入Bootstrap帮我们设置好的CSS样式和JS的动效   #}
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% include 'host/nav.html' %}
+{# Django模板中好用的功能: 过滤器  users|length 获取该列表的长度#}
+<h1>登录用户信息监控-登录的用户数量: {{ users | length }}</h1>
+{#设置table标签的类名称为table和table-striped，其实就是使用Bootstrap帮我们写好的CSS样式设置表格样式#}
+<table class="table table-striped table-hover">
+    <tr>
+        <td>登录的用户名</td>
+        <td>登录的主机</td>
+        <td>登录的时间</td>
+    </tr>
+
+    {% for user in users %}
+        <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.host }}</td>
+            <td>{{ user.started  | date}}</td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+
+</body>
+</html>

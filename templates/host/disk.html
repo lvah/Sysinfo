@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>磁盘监控信息</title>
+    {#  导入Bootstrap帮我们设置好的CSS样式和JS的动效   #}
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% include 'host/nav.html' %}
+<h1>磁盘信息监控</h1>
+{#设置table标签的类名称为table和table-striped，其实就是使用Bootstrap帮我们写好的CSS样式设置表格样式#}
+<table class="table table-striped table-hover">
+    <tr>
+        <td>分区名称</td>
+        <td>挂载点</td>
+        <td>文件系统类型</td>
+        <td>挂载属性</td>
+        <td>磁盘总容量</td>
+        <td>磁盘使用百分比(单位:%)</td>
+    </tr>
+
+    {% for disk in disks %}
+        <tr>
+            <td>{{ disk.device }}</td>
+            <td>{{ disk.mountpoint }}</td>
+            <td>{{ disk.fstype }}</td>
+            <td>{{ disk.opts }}</td>
+            <td>{{ disk.total }}</td>
+            <td>{{ disk.percent }}</td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+
+</body>
+</html>

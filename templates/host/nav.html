@@ -1,0 +1,17 @@
+{#编写代码发现html代码重复较多，就可以抽象出来， 存储到一个文件中#}
+{#其他文件希望使用， {% include 'host/nav.html' %} 导入即可 #}
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            {#     超链接       #}
+            <a class="navbar-brand" href="/">Sysinfo</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="/">主机信息监控</a></li>
+                <li><a href="/disk/">磁盘分区监控</a></li>
+                <li><a href="/users/">登录用户监控</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
