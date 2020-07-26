@@ -39,7 +39,6 @@ def index(request):
     # 默认情况下返回的是普通字符串，不美观， 需要模板
     return render(request, 'host/index.html', {'info': info})
 
-
 # 需求2:用户访问http://ip/disk/,返回磁盘分区的详细信息
 def disk(request):
     # 获取系统所有的磁盘分区
@@ -62,7 +61,6 @@ def disk(request):
     # 返回html页面信息
     return render(request, 'host/disk.html', {'disks': disks})
 
-
 # 需求3：用户访问http://ip/users/,返回当前登录用户的详细信息
 def users(requests):
     all_users = []
@@ -76,4 +74,8 @@ def users(requests):
         }
         all_users.append(one_user)
     return  render(requests, 'host/users.html', {'users':all_users})
+
+# 需求4：用户访问http://ip/, diff/,返回html页面，可以让用户上传文件
+def diff(request):
+    return  render(request, 'host/diff.html')
 

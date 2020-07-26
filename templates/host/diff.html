@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>配置文件差异性对比</title>
+    {#  导入Bootstrap帮我们设置好的CSS样式和JS的动效   #}
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% include 'host/nav.html' %}
+<h1>配置文件差异性对比</h1>
+<form action="#">
+    第一个配置文件: <input type="file" name="filename1"><br/>
+    第二个配置文件: <input type="file" name="filename2"><br/>
+    <input type="submit" value="上传">
+</form>
+</body>
+</html>

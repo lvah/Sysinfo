@@ -6,4 +6,5 @@ urlpatterns = [
     path('disk/', views.disk, name='disk'),
     # 快速拷贝一行ctrl + d
     path('users/', views.users, name='users'),
+    path('diff/', views.diff, name='diff'),
 ]
