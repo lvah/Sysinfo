@@ -10,11 +10,33 @@
 </head>
 <body>
 {% include 'host/nav.html' %}
-<h1>配置文件差异性对比</h1>
-<form action="#">
-    第一个配置文件: <input type="file" name="filename1"><br/>
-    第二个配置文件: <input type="file" name="filename2"><br/>
-    <input type="submit" value="上传">
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1>配置文件差异性对比</h1>
+            {#form表单需要指定的信息: 1). 提交的方式method=post 2). 提交给哪一个路由处理? /diff/对应的视图函数是diff函数#}
+            {# form表单上传文件时，一定要设置 enctype="multipart/form-data"         #}
+            <form role="form" action="/diff/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="inputfile">第一个配置文件:</label>
+                    <input type="file" id="inputfile" name="filename1">
+                </div>
+                <div class="form-group">
+                    <label for="inputfile">第二个配置文件:</label>
+                    <input type="file" id="inputfile" name="filename2">
+                </div>
+                <button type="submit" class="btn btn-success">上传文件</button>
+            </form>
+            {#<form action="#">#}
+            {#    第一个配置文件: <input type="file" name="filename1"><br/>#}
+            {#    第二个配置文件: <input type="file" name="filename2"><br/>#}
+            {#    <input type="submit" value="上传">#}
+            {#</form>#}
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
